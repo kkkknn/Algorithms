@@ -1,4 +1,4 @@
-package Kmeans;
+package OTSU;
 
 import com.sun.javafx.image.impl.IntArgb;
 
@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         BufferedImage image=null;
         try {
-            image= ImageIO.read(new File("src/source/images/test.jpg"));
+            image= ImageIO.read(new File("src/source/images/test2.jpg"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -51,7 +51,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        int val=KMeansUtil.binarization(arr,width,height);
+        int val=OTSUUtil.testRun(arr,width,height);
         if(val>=0){
             BufferedImage value_image=new BufferedImage(width,height,BufferedImage.TYPE_BYTE_GRAY);
             //根据K值处理图像数组
@@ -84,7 +84,7 @@ public class Main {
 
     //保存图像文件
     private static void writeImageFile(BufferedImage bi,String fileName) throws IOException {
-        File outputfile = new File("src/Kmeans/"+fileName);
+        File outputfile = new File("src/OTSU/"+fileName);
         String[] arr=fileName.split("\\.");
         ImageIO.write(bi, arr[1], outputfile);
     }

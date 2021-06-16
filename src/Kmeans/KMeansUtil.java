@@ -10,7 +10,7 @@ import java.util.LinkedList;
  */
 public class KMeansUtil {
 
-    public static void binarization(int[] arr){
+    public static int binarization(int[] arr,int width,int height){
         ArrayList<Integer> left_list=new ArrayList<>();
         ArrayList<Integer> right_list=new ArrayList<>();
         //随意拟定初始K值
@@ -63,8 +63,9 @@ public class KMeansUtil {
                 return 0;
             }
         });
-        System.out.println("left: "+left_list.toString());
-        System.out.println("right:"+right_list.toString());
+        int val=left_list.get(0);
+        System.out.println(val);
+        return val;
     }
 
 }
