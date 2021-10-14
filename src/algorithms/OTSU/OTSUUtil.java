@@ -1,4 +1,4 @@
-package OTSU;
+package algorithms.OTSU;
 
 import static java.lang.Math.pow;
 

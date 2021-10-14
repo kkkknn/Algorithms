@@ -1,6 +1,4 @@
-package OTSU;
-
-import com.sun.javafx.image.impl.IntArgb;
+package algorithms.OTSU;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -84,7 +82,7 @@ public class Main {
 
     //保存图像文件
     private static void writeImageFile(BufferedImage bi,String fileName) throws IOException {
-        File outputfile = new File("src/OTSU/"+fileName);
+        File outputfile = new File("src/algorithms.OTSU/"+fileName);
         String[] arr=fileName.split("\\.");
         ImageIO.write(bi, arr[1], outputfile);
     }

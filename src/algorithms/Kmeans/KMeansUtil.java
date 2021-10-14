@@ -1,8 +1,7 @@
-package Kmeans;
+package algorithms.Kmeans;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.LinkedList;
 
 /**
  * kmeans 聚类算法，通常用于灰度图像二值化，通过模拟2个K点，根据每个数据距离K的远近分成2部分，求平均得出新的K值，直到2次结果完全相同
