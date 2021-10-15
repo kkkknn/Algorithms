@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Test {
     //冒泡排序
-    public int[] sortNum(int[] arr){
+    private int[] sortNum(int[] arr){
         for (int i = 1; i < arr.length; i++) {
             boolean flag=false;//判断值，如果此次内部循环没有发生一次调换，可认为此数组排序已经完成
             for (int j = 0; j < arr.length-i; j++) {
