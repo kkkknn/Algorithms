@@ -6,30 +6,43 @@ class Solution {
             return 0
         }
         val charArray = s.toCharArray()
+        val len=charArray.lastIndex
         var count=0
-        for (index1 in 0..charArray.lastIndex){
-            var temp_len=1
-            val j=index1+1
-            for (index2 in j..charArray.lastIndex){
-                if(charArray[index1]==charArray[index2]){
-                    break
+        var start=0
+        var end=0
+        var jump=false
+        do {
+            var tempCount=0
+            for (index in (end+1)..len){
+                for (indexJ in start..end){
+                    if(charArray[indexJ]==charArray[index]){
+                        println(charArray[index])
+                        println(charArray[indexJ])
+                        tempCount=index-start
+                        start=indexJ
+                        jump=true
+                        count=if(tempCount>count) tempCount else count
+                        break
+                    }
                 }
-                temp_len++
+                end=index
+                if(jump){
+                    jump=false
+                    break
+                }else{
+                    tempCount=(end-start)
+                    count=if(tempCount>count) tempCount else count
+                }
             }
-            if(temp_len>count){
-                count = temp_len
+            if(end==len){
+                return count
             }
-            temp_len=0
-            if((charArray.lastIndex-index1)<temp_len){
-                break
-            }
-        }
-        return count
+        }while (true)
     }
 }
 
 fun main() {
-    val str="abcabcbb"
+    val str="aaccc"
     val test=Solution();
     val number=test.lengthOfLongestSubstring(str)
     println(number)
