@@ -2,8 +2,12 @@ package leetcode.无重复字符的最长子串
 
 class Solution {
     fun lengthOfLongestSubstring(s: String): Int {
-        if(s.equals("")){
+        s.replace(" ","")
+        if(s == ""){
             return 0
+        }
+        if(s.length==1){
+            return s.length
         }
         val charArray = s.toCharArray()
         val len=charArray.lastIndex
@@ -11,38 +15,38 @@ class Solution {
         var start=0
         var end=0
         var jump=false
+        var index=end+1
         do {
             var tempCount=0
-            for (index in (end+1)..len){
-                for (indexJ in start..end){
-                    if(charArray[indexJ]==charArray[index]){
-                        println(charArray[index])
-                        println(charArray[indexJ])
-                        tempCount=index-start
-                        start=indexJ
-                        jump=true
-                        count=if(tempCount>count) tempCount else count
-                        break
-                    }
-                }
-                end=index
-                if(jump){
-                    jump=false
+            for (indexJ in start..end){
+                if(charArray[indexJ]==charArray[index]){
+                    tempCount=end-start
+                    start=indexJ+1
+                    jump=true
                     break
-                }else{
-                    tempCount=(end-start)
-                    count=if(tempCount>count) tempCount else count
                 }
             }
-            if(end==len){
-                return count
+            if(jump){
+                if((len-count)<count){
+                    return count+1
+                }
+                jump=false
+            }else{
+                tempCount=(index-start)
             }
+            end=index++
+            count=if(tempCount>count) tempCount else count
+
+            if(end==len){
+                return count+1
+            }
+
         }while (true)
     }
 }
 
 fun main() {
-    val str="aaccc"
+    val str="abvvc"
     val test=Solution();
     val number=test.lengthOfLongestSubstring(str)
     println(number)
