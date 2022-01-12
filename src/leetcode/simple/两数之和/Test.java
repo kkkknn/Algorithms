@@ -1,4 +1,4 @@
-package leetcode.两数之和;
+package leetcode.simple.两数之和;
 
 import java.util.Arrays;
 

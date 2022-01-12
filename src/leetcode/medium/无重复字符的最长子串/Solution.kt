@@ -1,4 +1,4 @@
-package leetcode.无重复字符的最长子串
+package leetcode.medium.无重复字符的最长子串
 
 class Solution {
     fun lengthOfLongestSubstring(s: String): Int {
